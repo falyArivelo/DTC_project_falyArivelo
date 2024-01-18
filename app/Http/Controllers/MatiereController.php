@@ -28,4 +28,12 @@ class MatiereController extends Controller
         ]);
 
     }
+
+    public function form_atributeToProf(){
+        
+    }
+
+    public function atributeToProf(){
+
+    }
 }

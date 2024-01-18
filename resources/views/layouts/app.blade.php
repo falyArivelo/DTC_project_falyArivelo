@@ -287,8 +287,9 @@
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.new') }}">Creation
                                             matiere</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.list') }}">list</a>
-                                    </li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.list') }}">list</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.atributeToProf') }}">Atribuer matiere a un prof</a></li>
+
                                 </ul>
                             </div>
                         </li>

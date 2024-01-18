@@ -17,18 +17,8 @@ class EleveController extends Controller{
 
     public function listEleves()
     {
-        $eleveRole = Role::where('name', 'eleve')->first();
-        $eleves = array();
-        if ($eleveRole) {
-            $eleves = User::whereHas('roles', function ($query) use ($eleveRole) {
-                $query->where('role_id', $eleveRole->id);
-            })->get();
-
-            // Now $eleves contains the users with the 'eleve' role.
-        } else {
-            // Handle the case where the 'eleve' role does not exist.
-        }
-
+        $eleve = new \App\Models\Eleve();
+        $eleves = $eleve->getEleves();
         return view('eleves.liste', [
             'eleves' => $eleves
         ]);

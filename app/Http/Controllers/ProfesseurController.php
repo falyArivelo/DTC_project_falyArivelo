@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
+use App\Models;
 
 class ProfesseurController extends Controller{
     public function newProfesseur(){
@@ -17,17 +16,9 @@ class ProfesseurController extends Controller{
 
     public function listProfesseurs()
     {
-        $professeurRole = Role::where('name', 'professeur')->first();
-        $professeurs = array();
-        if ($professeurRole) {
-            $professeurs = User::whereHas('roles', function ($query) use ($professeurRole) {
-                $query->where('role_id', $professeurRole->id);
-            })->get();
 
-            // Now $professeurUsers contains the users with the 'professeur' role.
-        } else {
-            // Handle the case where the 'professeur' role does not exist.
-        }
+        $professeur = new \App\Models\Professeur();
+        $professeurs = $professeur->getProfesseurs();
 
         return view('professeurs.liste',[
             'professeurs' => $professeurs
