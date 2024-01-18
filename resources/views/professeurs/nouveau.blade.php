@@ -4,8 +4,8 @@
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Nouveau Matiere</h4>
-        <form class="forms-sample" action="{{ route('matiere.create')}} " method="post">
+        <h4 class="card-title">Nouveau classe</h4>
+        <form class="forms-sample" action="{{ route('classe.create')}} " method="post">
           @csrf
           @method('post')
           <div class="form-group">

@@ -277,13 +277,13 @@
                     <li class="nav-item nav-category">Creation</li>
 
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                                aria-controls="ui-basic">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#Matiere" aria-expanded="false"
+                                aria-controls="Matiere">
                                 <i class="menu-icon mdi mdi-floor-plan"></i>
                                 <span class="menu-title">Matiere</span>
                                 <i class="menu-arrow"></i>
                             </a>
-                            <div class="collapse" id="ui-basic">
+                            <div class="collapse" id="Matiere">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.new') }}">Creation
                                             matiere</a></li>
@@ -292,11 +292,62 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#classe" aria-expanded="false"
+                                aria-controls="classe">
+                                <i class="menu-icon mdi mdi-floor-plan"></i>
+                                <span class="menu-title">classe</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="classe">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('classe.new') }}">Creation
+                                        classe</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('classe.list') }}">list</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#Professeur" aria-expanded="false"
+                                aria-controls="Professeur">
+                                <i class="menu-icon mdi mdi-floor-plan"></i>
+                                <span class="menu-title">Professeur</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Professeur">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('professeur.new') }}">Creation
+                                        Professeur</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('professeur.list') }}">list</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#Eleve" aria-expanded="false"
+                                aria-controls="Eleve">
+                                <i class="menu-icon mdi mdi-floor-plan"></i>
+                                <span class="menu-title">Eleve</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="Eleve">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('eleve.new') }}">Creation Eleve</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="{{ route('eleve.list') }}">Liste</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+
                     @endrole
 
                     @role('professeur')
                     <li class="nav-item nav-category">Elèves</li>
-
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                             aria-controls="ui-basic">
@@ -306,16 +357,16 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
+                                
                                 <li class="nav-item"> <a class="nav-link" href="">6ème A</a></li>
                             </ul>
                         </div>
                     </li>
-                @endrole
+                    @endrole
 
 
                 @role('eleve')
                 <li class="nav-item nav-category">Matières</li>
-
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                         aria-controls="ui-basic">
@@ -329,7 +380,7 @@
                         </ul>
                     </div>
                 </li>
-            @endrole
+                 @endrole
                     
 
 

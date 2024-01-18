@@ -77,7 +77,7 @@ create table notes(
     idMatiere int,
     note float,
     dateTest datetime,
-    foreign key (idUser) references users(idUser)
+    foreign key (idUser) references users(idUser),
     foreign key (idMatiere) references matieres(idMatiere)
 );
 
@@ -88,4 +88,11 @@ create table likes(
     idPublication int,
     foreign key (idUser) references users(idUser),
     foreign key (idPublication) references publications(idPublication)
+);
+
+create table matieresProfesseurs(
+    idMatiere int,
+    idProfesseur int,
+    foreign key (idMatiere) references matieres(idMatiere),
+    foreign key (idProfesseur) references users(idUser)
 );
