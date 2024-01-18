@@ -52,6 +52,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/listMatieres', [MatiereController::class, 'listMatieres'])->name('matiere.list');
         Route::get('/atributeToProf', [MatiereController::class, 'form_atributeToProf'])->name('matiere.atributeToProf');
         Route::post('/atributeToProf', [MatiereController::class, 'atributeToProf'])->name('matiere.atributeToProf');
+        Route::get('/list_atributeToProf', [MatiereController::class, 'list_atributeToProf'])->name('matiere.list_atributeToProf');
+
 
     });
 
