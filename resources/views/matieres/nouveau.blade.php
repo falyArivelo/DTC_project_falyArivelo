@@ -13,6 +13,20 @@
                 <input type="text" name="nom" class="form-control" id="exampleInputUsername1" placeholder="nom">
           </div>
 
+          <select name="idClasse" class="form-control" >
+            @forelse ($classes as $classe)
+            <p></p>
+            <option value="{{ $classe->idClasse }}">{{ $classe->nom }} </option>
+            @empty
+
+             @endforelse
+        </select>
+
+        <div class="form-group">
+          <label for="coefficient">coefficient</label>
+          <input type="text" name="coefficient" class="form-control" id="coefficient" placeholder="coefficient">
+    </div>
+
           <button type="submit" class="btn btn-primary me-2">creer</button>
         </form>
       </div>

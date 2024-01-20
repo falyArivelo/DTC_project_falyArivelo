@@ -1,0 +1,10 @@
+php artisan migrate
+php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=RolesTableSeeder
+php artisan db:seed --class=ModelHasRolesTableSeeder 
+php artisan db:seed --class=ModelHasRolesTableSeeder 
+php artisan db:seed --class=ClassesTableSeeder 
+php artisan db:seed --class=MatieresTableSeeder 
+php artisan db:seed --class=MatieresProfesseursTableSeeder
+php artisan db:seed --class=PromotionsTableSeeder
+php artisan db:seed --class=PromotionElevesTableSeeder

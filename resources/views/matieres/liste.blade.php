@@ -18,6 +18,8 @@
                                 <tr>
                                     <td>
                                         {{ $matiere->nom }}
+                                        {{ $matiere->classe->nom }}
+
                                     </td>
                                 </tr>
                             @empty

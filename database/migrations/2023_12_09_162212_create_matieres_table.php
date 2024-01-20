@@ -16,6 +16,10 @@ return new class extends Migration
 
             // Nom de la matière
             $table->string('nom', 200);
+            $table->unsignedBigInteger('idClasse');
+    
+            // Assurez-vous que la colonne référencée est indexée dans la table 'classes'
+            $table->foreign('idClasse')->references('idClasse')->on('classes')->index();
         });
     }
 

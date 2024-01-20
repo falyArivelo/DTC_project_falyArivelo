@@ -12,8 +12,23 @@ class Matiere extends Model
     public $timestamps = false;
     protected $table = 'matieres';
     protected $primaryKey = 'idMatiere';
-    protected $fillable = ['nom'];
+    protected $fillable = ['nom','idClasse'];
 
+    public function matieres()
+    {
+        return $this->belongsToMany(Matiere::class, 'matieresProfesseurs', 'idUser', 'idMatiere');
+    }
+
+    public function classe()
+    {
+        return $this->belongsTo(Classe::class, 'idClasse', 'idClasse');
+    }
+
+    public function professeurs()
+    {
+        return $this->belongsToMany(User::class, 'matieresProfesseurs', 'idMatiere', 'idProfesseur');
+    }
+    
     protected function nom(): Attribute
     {
       return Attribute::make(

@@ -245,7 +245,7 @@
                         </a>
                     </li>
                     {{-- ADMIN --}}
-                    @role('admin')
+                    {{-- @role('direction') --}}
                     <li class="nav-item nav-category">Role et Permission</li>
 
                         <li class="nav-item">
@@ -271,9 +271,9 @@
                                 </ul>
                             </div>
                         </li>
-                    @endrole
+                    {{-- @endrole --}}
 
-                    @role('admin')
+                    {{-- @role('direction') --}}
                     <li class="nav-item nav-category">Creation</li>
 
                         <li class="nav-item">
@@ -345,7 +345,7 @@
                         </li>
                         
 
-                    @endrole
+                    {{-- @endrole --}}
 
                     @role('professeur')
                     <li class="nav-item nav-category">Elèves</li>

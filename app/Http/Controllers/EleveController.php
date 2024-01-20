@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use App\Models\PromotionEleve;
 
 class EleveController extends Controller{
     public function newEleve(){
@@ -19,8 +20,12 @@ class EleveController extends Controller{
     {
         $eleve = new \App\Models\Eleve();
         $eleves = $eleve->getEleves();
+
+        $promotionEleves = PromotionEleve::with('promotion','eleve')->get();
+
         return view('eleves.liste', [
-            'eleves' => $eleves
+            'eleves' => $eleves,
+            'promotionEleves' => $promotionEleves
         ]);
     }
 }

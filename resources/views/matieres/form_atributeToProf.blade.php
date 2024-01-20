@@ -14,7 +14,7 @@
             <select name="idMatiere" class="form-control" >
                 @forelse ($matieres as $matiere)
                 <p></p>
-                <option value="{{ $matiere->idMatiere }}">{{ $matiere->nom }}</option>
+                <option value="{{ $matiere->idMatiere }}">{{ $matiere->nom }} {{ $matiere->idClasse }} </option>
                 @empty
 
                  @endforelse

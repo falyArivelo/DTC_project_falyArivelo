@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classe;
 use App\Models\Matiere;
 use App\Models\matieresProfesseur;
 use Illuminate\Http\Request;
@@ -11,14 +12,21 @@ class MatiereController extends Controller
 
     public function newMatiere()
     {
-        return view('matieres.nouveau');
+        $classes = Classe::all();
+        return view('matieres.nouveau',
+        [
+            'classes' => $classes
+        ]
+    );
     }
 
     public function createMatiere(Request $request)
     {
 
         Matiere::create([
-            'nom' => $request->nom
+            'nom' => $request->nom,
+            'idClasse' => $request->idClasse,
+            'coefficient' => $request->coefficient,
         ]);
 
         return redirect()->route('matiere.list');

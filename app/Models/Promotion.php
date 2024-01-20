@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classe extends Model
+class Promotion extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'classes';
-    protected $primaryKey = 'idClasse';
+    protected $table = 'promotions';
+    protected $primaryKey = 'idPromotion';
     protected $fillable = ['nom'];
    
     protected function nom(): Attribute

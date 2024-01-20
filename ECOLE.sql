@@ -3,9 +3,9 @@ create table users(
     nom varchar(200)
     prenom varchar(200),
     genre varchar(1),
-    adresse varchar(200)
-    dateNaissance date
-    email varchar(200)
+    adresse varchar(200),
+    dateNaissance date,
+    email varchar(200),
     password varchar(255)
 );
 
@@ -22,8 +22,6 @@ create table publications(
     etat int,
     foreign key (idUser) references users(idUser)
 );
-
-
 
 create table documents(
     idDocument int primary key Auto_increment,
@@ -68,7 +66,9 @@ create table abscences(
 
 create table  matieres(
     idMatiere int primary key Auto_increment,
-    nom varchar(200)
+    nom varchar(200),
+    idClasse int,
+    foreign key (idClasse) references classes(idClasse)
 );
 
 create table notes(
@@ -95,4 +95,17 @@ create table matieresProfesseurs(
     idProfesseur int,
     foreign key (idMatiere) references matieres(idMatiere),
     foreign key (idProfesseur) references users(idUser)
+);
+
+
+create table promotions(
+    idPromotion serial primary key,
+    nom varchar(250)
+);
+
+create table promotionEleves(
+    idPromotion int,
+    idEleve int,
+    foreign key (idPromotion) references promotions(idPromotion),
+    foreign key (idEleve) references users(idUser)
 );

@@ -6,19 +6,31 @@
             <div class="card-body">
                 <h4 class="card-title">Liste des Professeurs</h4>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th></th>
+
                                 <th>
                                     Nom
                                 </th>
+                                <th>
+                                    Matiere
+                                </th>
+                            </tr>
                         </thead>
                         <tbody>
-                            @forelse ($professeurs as $professeur)
+                            @forelse ($matieresProfesseurs as $matieresProfesseur)
                                 <tr>
+                                    <td class="py-1">
+                                        <img src="{{ asset('images/faces/' .$matieresProfesseur->professeur->photo) }}" alt="image"/>
+                                      </td>
                                     <td>
-                                        {{ $professeur->nom }}
-                                        {{ $professeur->prenom }}
+                                        {{ $matieresProfesseur->matiere->nom }}
+                                        {{ $matieresProfesseur->matiere->classe->nom }}
+                                    </td>
+                                    <td>
+                                        {{ $matieresProfesseur->professeur->nom }}
 
                                     </td>
                                 </tr>

@@ -10,21 +10,23 @@
                         <thead>
                             <tr>
                                 <th>
-                                    Matiere
+                                    Prof
                                 </th>
                                 <th>
-                                    Prof
+                                    Matiere
                                 </th>
                         </thead>
                         <tbody>
                             @forelse ($matieresProfesseurs as $matieresProfesseur)
                                 <tr>
                                     <td>
-                                        {{ $matieresProfesseur->idMatiere }}
+                                        {{ $matieresProfesseur->professeur->nom }}
                                     </td>
                                     <td>
-                                        {{ $matieresProfesseur->idProfesseur }}
+                                        {{ $matieresProfesseur->matiere->nom }}
+                                        {{ $matieresProfesseur->matiere->classe->nom }}
                                     </td>
+
                                 </tr>
                             @empty
                                 <p>aucune resultat</p>
