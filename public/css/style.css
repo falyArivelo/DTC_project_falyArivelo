@@ -31349,3 +31349,14 @@ padding: 1rem 0;
   justify-content: space-around;
   color: red;
 }
+
+/* styles.css */
+.img-100x100 {
+    width: 150px;
+    
+}
+
+.myTable{
+  width: max-content;
+}
+

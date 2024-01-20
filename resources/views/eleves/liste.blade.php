@@ -21,18 +21,24 @@
                         </thead>
                         <tbody>
                             @forelse ($promotionEleves as $promotionEleve)
+
                                 <tr>
-                                    <td class="py-1">
-                                        <img src="{{ asset('images/faces/'.$promotionEleve->eleve->photo) }}" alt="image"/>
-                                      </td>
-                                    <td>
-                                        {{ $promotionEleve->eleve->nom }}
-                                        {{ $promotionEleve->eleve->prenom }}
+                                        <td class="py-1">
+                                            <img src="{{ asset('images/faces/'.$promotionEleve->eleve->photo) }}" alt="image"/>
+                                        </td>
+                                        <td>
+                                            {{ $promotionEleve->eleve->nom }}
+                                            {{ $promotionEleve->eleve->prenom }}
+                                        </td>
+                                        <td>
+                                            {{ $promotionEleve->promotion->nom }}
+                                        </td>
+                                        <td>
+                                        <a class="btn btn-primary" href="{{ route('eleve.bulletin', ['idUser' => $promotionEleve->eleve->idUser]) }}">bulletin</a>
                                     </td>
-                                    <td>
-                                        {{ $promotionEleve->promotion->nom }}
-                                    </td>
+
                                 </tr>
+
                             @empty
                                 <p>aucun eleve</p>
                             @endforelse

@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfesseurController;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/newEleve', [EleveController::class, 'newEleve'])->name('eleve.new');
         Route::post('/createEleve', [EleveController::class, 'createEleve'])->name('eleve.create');
         Route::get('/listEleves', [EleveController::class, 'listEleves'])->name('eleve.list');
+        Route::get('bulletin/{idUser}', [EleveController::class,'bulletin'])->name('eleve.bulletin');
+        Route::get('/newAbscence', [EleveController::class, 'newAbscence'])->name('eleve.newAbscence');
+        Route::post('/createAbscence', [EleveController::class, 'createAbscence'])->name('eleve.createAbscence');
+    
+    });
+
+    Route::prefix('note')->group(function () {
+        Route::get('/newNote/{idEleve}', [NoteController::class, 'newNote'])->name('note.new');
+        Route::post('/createNote', [NoteController::class, 'createNote'])->name('note.create');
+        Route::get('/listNotes', [NoteController::class, 'listNotes'])->name('note.list');
     });
     
     

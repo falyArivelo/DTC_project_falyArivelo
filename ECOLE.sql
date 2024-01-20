@@ -51,7 +51,7 @@ create table devoirs(
     dateDebut datetime,
     dateFin datetime,
     etat int,
-        foreign key (idClasse) references classes(idClasse),
+    foreign key (idClasse) references classes(idClasse),
     foreign key (idUser) references users(idUser),
     foreign key (idMatiere) references matieres(idMatiere)
 );
@@ -109,3 +109,9 @@ create table promotionEleves(
     foreign key (idPromotion) references promotions(idPromotion),
     foreign key (idEleve) references users(idUser)
 );
+
+
+select n.*,c.nom as nomclasse,m.nom as nommatiere from notes n
+left join matieres m on n.idMatiere = m.idMatiere
+join classes  c on c.idClasse = m.idClasse
+join users e on e.idUser = n.idUser

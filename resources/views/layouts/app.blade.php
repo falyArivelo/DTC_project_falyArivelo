@@ -347,7 +347,7 @@
 
                     {{-- @endrole --}}
 
-                    @role('professeur')
+                    {{-- @role('professeur') --}}
                     <li class="nav-item nav-category">Elèves</li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -363,10 +363,10 @@
                             </ul>
                         </div>
                     </li>
-                    @endrole
+                    {{-- @endrole --}}
 
 
-                @role('eleve')
+                {{-- @role('eleve') --}}
                 <li class="nav-item nav-category">Matières</li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -381,7 +381,7 @@
                         </ul>
                     </div>
                 </li>
-                 @endrole
+                 {{-- @endrole --}}
                     
 
 
