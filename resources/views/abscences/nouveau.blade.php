@@ -7,13 +7,13 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Nouvelle Absence</h4>
-                <form class="forms-sample" action="{{ route('absences.store') }}" method="post">
+                <form class="forms-sample" action="{{ route('eleve.createAbscence') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="idUser">Utilisateur</label>
+                        <label for="idUser">Eleve</label>
                         <select name="idUser" class="form-control">
-                            @foreach($users as $user)
-                                <option value="{{ $user->idUser }}">{{ $user->nom }} {{ $user->prenom }}</option>
+                            @foreach($eleves as $eleve)
+                                <option value="{{ $eleve->idUser }}">{{ $eleve->nom }} {{ $eleve->prenom }}</option>
                             @endforeach
                         </select>
                     </div>

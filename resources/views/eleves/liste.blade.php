@@ -35,6 +35,8 @@
                                         </td>
                                         <td>
                                         <a class="btn btn-primary" href="{{ route('eleve.bulletin', ['idUser' => $promotionEleve->eleve->idUser]) }}">bulletin</a>
+                                        <a class="btn btn-secondary" href="{{ route('eleve.voirAbscence', ['idUser' => $promotionEleve->eleve->idUser]) }}">Abscences</a>
+
                                     </td>
 
                                 </tr>

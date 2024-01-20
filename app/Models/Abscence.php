@@ -5,9 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Absence extends Model
+class Abscence extends Model
 {
-    protected $table = 'absences';
+    protected $table = 'abscences';
     protected $primaryKey = 'idAbscence';
     public $timestamps = false;
 

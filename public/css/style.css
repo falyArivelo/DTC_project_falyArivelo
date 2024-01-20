@@ -31360,3 +31360,10 @@ padding: 1rem 0;
   width: max-content;
 }
 
+.publication{
+  margin-top: 15px;
+  background-color: #CCCFD4;
+  border-radius: 5px;
+  padding: 10px;
+}
+

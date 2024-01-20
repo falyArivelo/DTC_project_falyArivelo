@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\createUserRequest;
 use App\Http\Requests\UserLoginRequest;
+use App\Models\Publication;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,13 @@ class UserController extends Controller
     }
 
     public function dashboard(){
-        return view('dashboard');
+        // $publications = Publication::all();
+        $publications = Publication::orderBy('datePublication', 'desc')->get();
+
+
+        return view('dashboard' ,
+        ['publications' => $publications ]
+    );
     }
 
     public function logout(){

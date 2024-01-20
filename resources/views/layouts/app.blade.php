@@ -57,7 +57,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                         <h1 class="welcome-text">Bonjour , <span
-                                class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
+                                class="text-black fw-bold">{{ Auth::user()->nom }}</span></h1>
                         <h3 class="welcome-sub-text"> Votre résumé de performance cette semaine </h3>
                     </li>
                 </ul>
@@ -169,7 +169,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                                    <img src="{{ asset('images/faces/' . Auth::user()->photo) }}" alt="image"
+                                        class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
                                     <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
@@ -178,7 +179,8 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                                    <img src="{{ asset('images/faces/' . Auth::user()->photo) }}" alt="image"
+                                        class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
                                     <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
@@ -200,10 +202,12 @@
                     <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+                            <img class="img-xs rounded-circle"
+                                src="{{ asset('images/faces/' . Auth::user()->photo) }}" alt="Profile image"> </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                                <img class="img-md rounded-circle"
+                                    src="{{ asset('images/faces/' . Auth::user()->photo) }}" alt="Profile image">
                                 <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
                                 <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
                             </div>
@@ -245,8 +249,8 @@
                         </a>
                     </li>
                     {{-- ADMIN --}}
-                    {{-- @role('direction') --}}
-                    <li class="nav-item nav-category">Role et Permission</li>
+                    @role('direction')
+                        <li class="nav-item nav-category">Role et Permission</li>
 
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -271,10 +275,8 @@
                                 </ul>
                             </div>
                         </li>
-                    {{-- @endrole --}}
 
-                    {{-- @role('direction') --}}
-                    <li class="nav-item nav-category">Creation</li>
+                        <li class="nav-item nav-category">Creation</li>
 
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#Matiere" aria-expanded="false"
@@ -287,8 +289,11 @@
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.new') }}">Creation
                                             matiere</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.list') }}">list</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('matiere.atributeToProf') }}">Atribuer matiere a un prof</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ route('matiere.list') }}">list</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ route('matiere.atributeToProf') }}">Atribuer matiere a un prof</a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -304,7 +309,7 @@
                             <div class="collapse" id="classe">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('classe.new') }}">Creation
-                                        classe</a></li>
+                                            classe</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('classe.list') }}">list</a>
                                     </li>
                                 </ul>
@@ -320,14 +325,35 @@
                             </a>
                             <div class="collapse" id="Professeur">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('professeur.new') }}">Creation
-                                        Professeur</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('professeur.list') }}">list</a>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ route('professeur.new') }}">Creation
+                                            Professeur</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ route('professeur.list') }}">list</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
+
+
+                        <li class="nav-item nav-category">Matières</li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                                aria-controls="ui-basic">
+                                <i class="menu-icon mdi mdi-floor-plan"></i>
+                                <span class="menu-title">Matières</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="">Math algèbre</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endrole
+
+                    @role('professeur')
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#Eleve" aria-expanded="false"
                                 aria-controls="Eleve">
@@ -337,111 +363,24 @@
                             </a>
                             <div class="collapse" id="Eleve">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="{{ route('eleve.new') }}">Creation Eleve</a></li>
+                                    {{-- <li class="nav-item"> <a class="nav-link" href="{{ route('eleve.new') }}">Creation
+                                            Eleve</a></li> --}}
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('eleve.list') }}">Liste</a>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ route('eleve.newAbscence') }}">Remplir Absences</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        
+                    @endrole
+
+
+                    {{-- @role('eleve') --}}
 
                     {{-- @endrole --}}
 
-                    {{-- @role('professeur') --}}
-                    <li class="nav-item nav-category">Elèves</li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
-                            <i class="menu-icon mdi mdi-floor-plan"></i>
-                            <span class="menu-title">Classes</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                
-                                <li class="nav-item"> <a class="nav-link" href="">6ème A</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    {{-- @endrole --}}
 
 
-                {{-- @role('eleve') --}}
-                <li class="nav-item nav-category">Matières</li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                        aria-controls="ui-basic">
-                        <i class="menu-icon mdi mdi-floor-plan"></i>
-                        <span class="menu-title">Matières</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="">Math algèbre</a></li>
-                        </ul>
-                    </div>
-                </li>
-                 {{-- @endrole --}}
-                    
-
-
-                    <li class="nav-item nav-category">Finance</li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-                            aria-controls="form-elements">
-                            <i class="menu-icon mdi mdi-card-text-outline"></i>
-                            <span class="menu-title">Form elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="form-elements">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic
-                                        Elements</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
-                            aria-controls="charts">
-                            <i class="menu-icon mdi mdi-chart-line"></i>
-                            <span class="menu-title">Charts</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="charts">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/charts/chartjs.html">ChartJs</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
-                            aria-controls="tables">
-                            <i class="menu-icon mdi mdi-table"></i>
-                            <span class="menu-title">Tables</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="tables">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic
-                                        table</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false"
-                            aria-controls="icons">
-                            <i class="menu-icon mdi mdi-layers-outline"></i>
-                            <span class="menu-title">Icons</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="icons">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
             </nav>
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Abscence;
 use App\Models\Eleve;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
 use App\Models\PromotionEleve;
 
 class EleveController extends Controller
@@ -19,7 +19,7 @@ class EleveController extends Controller
     {
         return redirect()->route('eleves.list');  // Assuming you have 'eleve.list' as the route name
     }
-
+    
     public function listEleves()
     {
         $eleve = new \App\Models\Eleve();
@@ -55,14 +55,29 @@ class EleveController extends Controller
     }
 
     public function newAbscence(){
-        
-        return view('abscences.nouveau');
+        $eleve = new \App\Models\Eleve();
+        $eleves = $eleve->getEleves();
+        return view('abscences.nouveau',[
+            'eleves' => $eleves 
+        ]);
     }
 
     public function createAbscence(Request $request){
-
-
+        Abscence::create([
+            'idUser' => $request->idUser,
+            'dateDebut' => $request->dateDebut,
+            'dateFin' => $request->dateFin,
+        ]);
+        return redirect()->back();
     }
+
+    public function voirAbscence($idUser){
+        $user = User::find($idUser);
+        $abscences = $user->abscences;
+
+        return view('abscences.liste', ['abscences' => $abscences]);
+    }
+
 
 
 }

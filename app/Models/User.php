@@ -21,5 +21,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'matieresProfesseurs', 'idMatiere', 'idUser');
     }
+
+    public function abscences()
+    {
+        return $this->hasMany(Abscence::class, 'idUser');
+    }
     
 }

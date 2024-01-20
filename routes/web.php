@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PublicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('bulletin/{idUser}', [EleveController::class,'bulletin'])->name('eleve.bulletin');
         Route::get('/newAbscence', [EleveController::class, 'newAbscence'])->name('eleve.newAbscence');
         Route::post('/createAbscence', [EleveController::class, 'createAbscence'])->name('eleve.createAbscence');
+        Route::get('/voirAbscence/{idUser}', [EleveController::class, 'voirAbscence'])->name('eleve.voirAbscence');
+
     
     });
 
@@ -86,6 +89,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/newNote/{idEleve}', [NoteController::class, 'newNote'])->name('note.new');
         Route::post('/createNote', [NoteController::class, 'createNote'])->name('note.create');
         Route::get('/listNotes', [NoteController::class, 'listNotes'])->name('note.list');
+    });
+
+    Route::prefix('publication')->group(function () {
+        Route::get('/newPublication', [PublicationController::class, 'newPublication'])->name('publication.new');
+        Route::post('/createPublication', [PublicationController::class, 'createPublication'])->name('publication.create');
+        Route::get('/listPublications', [PublicationController::class, 'listPublications'])->name('publication.list');
     });
     
     
